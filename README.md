@@ -1,6 +1,6 @@
-# Comparative analysis of data inputs to predictive policing models
+# Comparative Analysis of Data Inputs to Predictive Policing Models
 
-The repository contains the report, poster, and visualization for my group's final project for our CSE 6242 class at the Georgia Institute of Technology. Information on how to install/execute the code and visualization can be found in OVERVIEW.txt.
+This repository contains the report, poster, and visualization for my group's final project for our CSE 6242 class at the Georgia Institute of Technology in April 2021. Information on how to install/execute the code and visualization can be found in OVERVIEW.txt.
 
 **Visualization:** https://predictive-policing-analysis.herokuapp.com/
 
