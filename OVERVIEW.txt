@@ -1,0 +1,83 @@
+CSE 6242 Spring 2021 - Team 004  
+Georgia Institute of Technology
+J. Carbonell, C. O’Brien, N. Ramallo, A. Sharma, I. Tumey, W. Wirono 
+---------------------------------------------------------------------
+
+DESCRIPTION:
+
+This folder contains the companion visualization and assets for our final project for Georgia Tech's CSE 6242 class in the Spring of 2021. In this text document, you'll learn how to install and run the visualization, as well as learn about the input data sources for our visualization and model.
+
+The primary visualization is hosted in a Python Jupyter Notebook using Folium and several other packages. Instructions on running this document are found below.
+
+You can also view the view the visualization online - https://predictive-policing-analysis.herokuapp.com/ 
+
+
+INSTALLATION:
+
+This visualization requires the use of a Jupyter Notebook and Python 3. If you're unfamiliar with either, you can find how to install and load them below.
+
+	Python 3: https://www.python.org/
+	Jupyter Notebook: https://jupyter.org/install
+
+The following Python packages are required for this visualization. This project was tested with the versions listed below, though it may work with other versions of these packages.  
+
+	Python==3.9.0
+	branca==0.4.2
+	folium==0.12.1
+	geojson==2.5.0		
+	numpy==1.19.5
+	pandas==1.2.1
+	shapely==1.7.1
+	statsmodels==0.9.0
+
+EXECUTION:
+
+The visualization is in the Jupyter Notebook called 'Predictive_Policing_Input_Analysis.ipynb'
+
+You can learn how to load Jupyter Notebooks locally here: https://jupyter.readthedocs.io/en/latest/running.html
+
+To view the visualization, please execute each cell in the Jupyter Notebook. The visualization is presented at the final cell.
+
+
+DATASETS:
+
+The visualization requires five datasets: three CSV files, one JSON file, and one GeoJSON file.
+
+'crime_data_baltimore_2018.csv'
+
+ 
+This file contains descriptive data for all felony (Type I) crimes in Baltimore in 2018. Felony crimes include violent crimes like murder, rape and assault, as well as serious property crimes like arson, larceny theft, and vehicle theft. We obtained the file from the City of Baltimore’s Open Data repository: 
+
+https://data.baltimorecity.gov/datasets/part1-crime-2017-to-2018/data
+
+After obtaining this file, we filter for all records from the year 2018, standardize the crime descriptions, and assign a census tract to each crime using the latitude and longitude fields related to the location of the crime and the census tract boundary file described below.
+
+
+'calls_for_service_data_baltimore_2018.csv'
+
+This file contains descriptive data for all calls for service in Baltimore in 2018. Calls for service include calls for police service that range from traffic stops to live shootings. We obtained the file from the City of Baltimore’s Open Data repository:
+
+https://data.baltimorecity.gov/datasets/911-calls-for-service-2018/data
+
+After obtaining this file, we standardized all call descriptions, add date and time fields based on the callDateTime field, and geocode each call based on the incidentLocation field using Google’s Geocoding API. We also add a field to classify each call based on whether its description relates to a Type I crime, described above. We hard-code a set of a rules to produce this classification based on a review of the call descriptions that represent >90% of all calls in the data set (roughly the top 60 most common descriptions).  
+
+
+'census_demographic_data.csv'
+ 
+This file contains demographic data for each census tract in Baltimore in 2018. Demographic data include the count of the total population as well as the count and share of the population of White, Black, Latino, and Asian Baltimoreans. We obtained this file from the Census Bureau’s American Community Survey (ACS) from 2018:
+
+https://www.census.gov/programs-surveys/acs/data.html
+
+While the original file ACS contain a rich set of demographic data for each census tract, we filter the data set to just the race/ethnicity fields described above to obtain just the racial/ethnic composition of each tract.
+ 
+
+'baltimore_geohash.json'
+
+This file contains GeoJSON data for 478 identically sized geographic regions in Baltimore. We created it using a GeoJSON shape file of Baltimore, filling in the boundaries with equal sized geographic regions.
+ 
+
+'census_tract_boundaries-demog.geojson'
+
+This file contains the geographic boundaries for the 200 Census Tracts in Baltimore. We use the boundary polygons to classify each crime observation and determine the census tract in which the crime occurred. This file was obtained the US Census Bureau: 
+
+https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html
