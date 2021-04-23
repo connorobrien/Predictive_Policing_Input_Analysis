@@ -5,7 +5,7 @@ J. Carbonell, C. O’Brien, N. Ramallo, A. Sharma, I. Tumey, W. Wirono
 
 DESCRIPTION:
 
-This folder contains the companion visualization and assets for our final project for Georgia Tech's CSE 6242 class in the Spring of 2021. In this text document, you'll learn how to install and run the visualization, as well as learn about the input data sources for our visualization and model.
+This repository contains the companion visualization and assets for our final project for Georgia Tech's CSE 6242 class in the Spring of 2021. In this text document, you'll learn how to install and run the visualization, as well as learn about the input data sources for our visualization and model.
 
 The primary visualization is hosted in a Python Jupyter Notebook using Folium and several other packages. Instructions on running this document are found below.
 
